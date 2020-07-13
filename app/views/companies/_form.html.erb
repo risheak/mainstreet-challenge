@@ -1,0 +1,72 @@
+<%# <%= errors_for(@company) %> %>
+<div class="py-5">
+  <%= form_for @company do |f| %>
+
+    <div class="row my-lg-3">
+      <div class="col-lg-3">
+        <label><strong>Name</strong><br><small class="text-muted">The public DBA, or Common name of the organization</small></label>
+      </div>
+      <div class="col-lg offset-lg-1">
+        <div class="form-group">
+          <%= f.text_field :name, class: "form-control", placeholder: "Company Name", required: true %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row my-lg-3">
+      <div class="col-lg-3">
+        <label><strong>Zip Code</strong><br><small class="text-muted">5 Digit US postal code</small></label>
+      </div>
+      <div class="col-lg offset-lg-1">
+        <div class="form-group">
+          <%= f.text_field :zip_code, class: "form-control", placeholder: "93003", required: true %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row my-lg-3">
+      <div class="col-lg-3">
+        <label><strong>Description</strong><br><small class="text-muted">Rich text marketing description</small></label>
+      </div>
+      <div class="col-lg-8 offset-lg-1">
+        <div class="form-group">
+          <%= f.rich_text_area :description %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row my-lg-3">
+      <div class="col-lg-3">
+        <label><strong>Phone</strong><br><small class="text-muted">Shown in marketing</small></label>
+      </div>
+      <div class="col-lg offset-lg-1">
+        <div class="form-group">
+          <%= f.text_field :phone, class: "form-control", placeholder: "555-555-5555"%>
+        </div>
+      </div>
+    </div>
+
+    <div class="row my-lg-3">
+      <div class="col-lg-3">
+        <label><strong>Email</strong><br><small class="text-muted">Shown in marketing</small></label>
+      </div>
+      <div class="col-lg offset-lg-1">
+        <div class="form-group has-error">
+          <%= f.text_field :email, class: @company.errors.include?(:email) ? "is-invalid form-control" : "form-control", placeholder: "hello@company.com"%>
+          <small id="emailHelp" class="text-danger"><%=@company.errors.include?(:email) ? @company.errors[:email].join(', ') : ""%></small>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row my-lg-3">
+      <div class="col">
+        <div class="form-group">
+          <%= f.submit class: "btn btn-success"%>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

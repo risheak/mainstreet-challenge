@@ -1,0 +1,25 @@
+<div class="container py-5">
+  <h1>Welcome 👋</h1>
+  <p>Be sure you check out the REAMDE.md for specific tasks to be completed.</p>
+  <p>All changes will be within <%= link_to "Companies", companies_path  %>
+  <ul class="my-5 list-group">
+    <li class="list-group-item">
+      <h4><strong>☐ Add a way to delete companies</strong></h4>
+      <p>For companies, there isn't currently a way to destroy them. There should be a confirmation of the action. Some kind of "Are you sure?" message.</p>
+    </li>
+    <li class="list-group-item">
+      <h4><strong>☐ Add Custom Validation to company email Address (When Present)</strong></h4>
+      <p>All email addresses for new companies should only be a @getmainstreet.com domain. A custom error should render when attempting to create or update a company when the email does not match this domain. This should only be when email is present. Blank emails can be ignored.</p>
+    </li>
+    <li class="list-group-item">
+      <h4><strong>☐ Add City State To Companies from Zip Code.</strong></h4>
+      <p>For each company "Show" page there is a placeholder for the <strong>City, State</strong> for that company. You'll need to leverage the zip code to have that value render the actual <strong>City, State</strong>. For example: <strong> Nashville, TN</strong> It is strongly recommended to use the <a href="https://github.com/monterail/zip-codes">ZipCodes gem</a> that is already in this project.</p>
+      <p>Every time the company's zip code is updated this city and state should be updated.</p>
+      <p>The City and State should be added as attributes to the Copmany object.</p>
+    </li>
+    <li class="list-group-item">
+      <h4><strong>☐ Inlcude test coverage for all your changes</strong></h4>
+      <p>For all functinality extend or add tests from existing tests.</p>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,33 @@
+<div class="container py-5">
+  <h3>Company</h3>
+  <div class="row">
+    <div class="col">
+      <%= link_to "< Companies", companies_path %>
+    </div>
+    <div class="col text-right">
+      <%= link_to "Edit", edit_company_path %>
+    </div>
+  </div>
+  <div class="bg-success">
+    <div class="container p-5 text-white">
+      <h1><%= @company.name %></h1>
+      <% if @company.zip_code %>
+        <% if @company.city && @company.state %>
+          <h3><%= "#{@company.city}, #{@company.state.split("/").last}" %></h3>
+        <% else %>
+          <% zipcode_definition = ZipCodes.identify(@company.zip_code) %>
+          <h3><%= "#{zipcode_definition[:city]}, #{zipcode_definition[:state_code]}" %></h3>
+        <% end %>
+      <% end %>
+      <!-- <pre>☝️ This is what needs to be udpated. Examples: Atlanta, GA or Nashvile, TN</pre> -->
+    </div>
+  </div>
+  <% if @company.description.present? %>
+    <div class="bg-light p-5">
+      <%= @company.description %>
+    </div>
+  <% end %>
+  <div class="bg-success text-white text-center py-3">
+    <p class="lead"><%= @company.phone %> — <%= @company.email %></p>
+  </div>
+</div>

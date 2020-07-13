@@ -1,0 +1,24 @@
+<div class="container py-5">
+  <h3>Companies</h3>
+  <%= link_to "+ Create a Company", new_company_path %><br>
+  <% if @companies.empty? %>
+  <p>No Companies Found</p>
+  <% else %>
+    <ul class="list-group my-5">
+      <% @companies.each do |company| %>
+        <div class = "list-group-item">
+          <div class = "row">
+            <div class = "col-md-8">
+              <a href="<%= company_path(company) %>" class="list-group-item-action">
+                <%= company.name %>
+              </a>
+            </div>
+            <div class = "col-md-4">
+              <%= link_to "Delete", company_path(company), method: :delete, data: {confirm: "Are you sure ?"}, class: "float-right" %><br>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
